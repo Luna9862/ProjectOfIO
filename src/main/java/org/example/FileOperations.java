@@ -45,9 +45,7 @@ public class FileOperations {
         // Check if the source directory is empty
         File sourceDirectory = source.toFile().getParentFile();
         if (sourceDirectory.list().length == 0) {
-            // Create a new empty file to prevent the directory from being deleted
-            File emptyFile = new File(sourceDirectory, ".keep");
-            emptyFile.createNewFile();
+            // Do nothing, leave the directory empty
         }
     }
 
