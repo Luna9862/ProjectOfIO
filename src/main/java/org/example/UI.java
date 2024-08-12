@@ -10,7 +10,7 @@ public class UI {
     private final FileOperations fileOperations = new FileOperations(); //Handles file-related operations
     private final DirectoryOperations directoryOperations = new DirectoryOperations(); //Handles directory-related operations
     private final SearchOperations searchOperations = new SearchOperations(); //Handles search-related operations
-//Method that starts the user interface and main application loop
+    //Method that starts the user interface and main application loop
     public void start() {
         Scanner scanner = new Scanner(System.in); //scanner for reading user input
         while (true) { //Infinite loop to keep the application running until the user decides to exit
@@ -55,7 +55,7 @@ public class UI {
             }
         }
     }
-//The method of displaying the menu options
+    //The method of displaying the menu options
     private void showMenu() {
         System.out.println("\n--- File Manager ---");
         System.out.println("1. Display Directory Details");
@@ -70,7 +70,7 @@ public class UI {
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
-//This method handles copying a file
+    //This method handles copying a file
     private void handleFileCopy(Scanner scanner) {
         try {
             System.out.print("Enter source file path: ");
@@ -83,7 +83,7 @@ public class UI {
             System.err.println("Error copying file: " + e.getMessage());
         }
     }
-//This method handles moving a file
+    //This method handles moving a file
     private void handleFileMove(Scanner scanner) {
         try {
             System.out.print("Enter source file path: ");
@@ -96,7 +96,7 @@ public class UI {
             System.err.println("Error moving file: " + e.getMessage());
         }
     }
-//Method to handle deleting file
+    //Method to handle deleting file
     private void handleFileDelete(Scanner scanner) {
         try {
             System.out.print("Enter file path to delete: ");
@@ -107,7 +107,7 @@ public class UI {
             System.err.println("Error deleting file: " + e.getMessage());
         }
     }
-//Method to handle creating a directory
+    //Method to handle creating a directory
     private void handleDirectoryCreate(Scanner scanner) {
         try {
             System.out.print("Enter directory path to create: ");
@@ -118,7 +118,7 @@ public class UI {
             System.err.println("Error creating directory: " + e.getMessage());
         }
     }
-//Method to handle deleting a directory
+    //Method to handle deleting a directory
     private void handleDirectoryDelete(Scanner scanner) {
         try {
             System.out.print("Enter directory path to delete: ");
@@ -129,7 +129,7 @@ public class UI {
             System.err.println("Error deleting directory: " + e.getMessage());
         }
     }
-//Method to handle searching for files by name
+    //Method to handle searching for files by name
     private void handleFileSearch(Scanner scanner) {
         System.out.print("Enter directory path: ");
         String dirPath = scanner.nextLine();
@@ -138,7 +138,7 @@ public class UI {
         List<String> results = searchOperations.searchByName(dirPath, fileName);
         displaySearchResults(results);
     }
-// Method to handle searching for files by extension
+    // Method to handle searching for files by extension
     private void handleExtensionSearch(Scanner scanner) {
         System.out.print("Enter directory path: ");
         String dirPath = scanner.nextLine();
@@ -147,7 +147,7 @@ public class UI {
         List<String> results = searchOperations.searchByExtension(dirPath, extension);
         displaySearchResults(results);
     }
-// Method to display the search results
+    // Method to display the search results
     private void displaySearchResults(List<String> results) {
         if (results.isEmpty()) { //check if no files were found
             System.out.println("No files found."); //Display a message if no files were found
@@ -158,7 +158,7 @@ public class UI {
             }
         }
     }
-//Method to handle opening a directory in the file explorer
+    //Method to handle opening a directory in the file explorer
     private void handleOpenDirectory(Scanner scanner) {
         System.out.print("Enter directory path to open: ");
         String dirPath = scanner.nextLine();
@@ -179,4 +179,3 @@ public class UI {
         }
     }
 }
-

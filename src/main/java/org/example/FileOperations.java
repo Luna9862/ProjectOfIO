@@ -37,8 +37,18 @@ public class FileOperations {
     public void moveFile(String sourcePath, String destinationPath) throws IOException {
         Path source = Paths.get(sourcePath);
         Path destination = Paths.get(destinationPath);
+
+        // Move the file
         Files.move(source, destination, StandardCopyOption.REPLACE_EXISTING);
         logger.info("Moved file from " + sourcePath + " to " + destinationPath);
+
+        // Check if the source directory is empty
+        File sourceDirectory = source.toFile().getParentFile();
+        if (sourceDirectory.list().length == 0) {
+            // Create a new empty file to prevent the directory from being deleted
+            File emptyFile = new File(sourceDirectory, ".keep");
+            emptyFile.createNewFile();
+        }
     }
 
     public void deleteFile(String filePath) throws IOException {
